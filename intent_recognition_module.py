@@ -9,7 +9,7 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 class Ir_Module:
     def __init__(self):
-        self.threshold = 0.4
+        self.threshold = 0.5
         self.model = GPT2LMHeadModel.from_pretrained("sberbank-ai/rugpt3small_based_on_gpt2")
         self.tokenizer = GPT2Tokenizer.from_pretrained("sberbank-ai/rugpt3small_based_on_gpt2")
         with open("training_corpus.json", encoding="utf8") as json_file:
