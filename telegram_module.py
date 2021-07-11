@@ -1,17 +1,21 @@
 # -*- coding: utf-8 -*-
+import logging
 import re
 import time
 from configparser import ConfigParser
+from multiprocessing import Process
 
 import data_handler_module
+import egrn_module
 import intent_recognition_module
 import requests
+import rest_module
 
 
 class BotHandler:
     def __init__(self, token, dialogue_manager):
         self.token = token
-        self.api_url = "https://api.telegram.org/bot{}/".format(token)
+        self.api_url = f"https://api.telegram.org/bot{self.token}/"
         self.dialogue_manager = dialogue_manager
 
     def get_last_update(self):
@@ -28,7 +32,9 @@ class BotHandler:
         return resp.json()["result"]
 
     def send_message(self, chat_id, content):
+        # todo: support sending documents
         if type(content) is not str:
+            # temporary testing stuff
             return requests.post(self.api_url + "sendPhoto", {"chat_id": chat_id}, files={"photo": content})
         else:
             return requests.post(self.api_url + "sendMessage", {"chat_id": chat_id, "text": content})
@@ -41,9 +47,10 @@ class DialogueManager(object):
         if text == "/help":
             return "Сам разберешься, хуепутало"
 
-        intent = intent_recognition_module.ir.get_intent(text)
+        intent = intent_recognition_module.ir.get_intent(str(text))
 
         if intent == "egrn_auth_key":
+            # todo: validate key on input
             data_handler_module.dh.set_auth_key(chat_id, text)
             answer = "Ключ принят"
 
@@ -63,10 +70,10 @@ class DialogueManager(object):
                     return "Не могу заказать выписки без кадастровых номеров"
 
             if intent == "egrn":
-                data_handler_module.dh.add_egrn_request(cad_numbers, chat_id, egrp=False)
+                data_handler_module.dh.add_egrn_request(cad_numbers, chat_id, excerpt_type=0)
                 answer = "Заказ выписок ЕГРН на " + cad_numbers_string
             elif intent == "egrp":
-                data_handler_module.dh.add_egrn_request(cad_numbers, chat_id, egrp=True)
+                data_handler_module.dh.add_egrn_request(cad_numbers, chat_id, excerpt_type=1)
                 answer = "Заказ выписок ЕГРП на " + cad_numbers_string
         elif intent == "doc":
             data_handler_module.dh.add_doc_request(text, chat_id)
@@ -87,6 +94,9 @@ def main():
     ca_bot = BotHandler(token, dialogue_manager)
     new_offset = 0
 
+    proc = Process(target=egrn_module.egrn_proccess)
+    proc.start()
+
     while True:
         updates = ca_bot.get_updates(new_offset=new_offset)
         for update in updates:
@@ -96,6 +106,14 @@ def main():
                     text = update["message"]["text"]
 
                     answer = ca_bot.dialogue_manager.get_answer(chat_id, text)
+                    ca_bot.send_message(chat_id, answer)
+                elif "photo" in update["message"]:
+                    file_id = update["message"]["photo"][1]["file_id"]
+                    file_id = requests.get(f"https://api.telegram.org/bot{token}/getFile?file_id={file_id}").json()
+                    image_path = file_id["result"]["file_path"]
+                    image = requests.get(f"https://api.telegram.org/file/bot{token}/{image_path}", stream=True).raw
+                    answer = rest_module.mh.predict(image)
+
                     ca_bot.send_message(chat_id, answer)
 
             new_offset = max(new_offset, update["update_id"] + 1)
