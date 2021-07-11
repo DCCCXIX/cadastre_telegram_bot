@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
+import logging
 import re
 
 import numpy as np
@@ -34,8 +35,10 @@ class Ir_Module:
             intent = "egrn_auth_key"
         else:
             question = re.sub(r"\d{2}:\d{2}:\d{1,7}:\d{1,}", "", question)
-            print(question)
+            logging.info(question)
             tokenized_question = self.tokenizer.encode(question)
+            if len(tokenized_question) == 0:
+                return "unknown"
             sentence_vector = sum([self.model.transformer.wte.weight[token, :] for token in tokenized_question])
             sentence_vector = sentence_vector.detach().numpy()
 
@@ -49,13 +52,13 @@ class Ir_Module:
             # getting the appropriate answer from a list of predefined answers
             intent = self.training_corpus[result_idx][1]
             for dist in cosine_distances:
-                print(dist)
-            print(f"Min cosine distance: {min(cosine_distances)}")
+                logging.info(dist)
+            logging.info(f"Min cosine distance: {min(cosine_distances)}")
 
             # if cosine distance is too big to all the questions, use text answering module instead
             if min(cosine_distances) == None or min(cosine_distances) > self.threshold:
                 intent = "unknown"
-        print(f"Intent: {intent}")
+        logging.info(f"Intent: {intent}")
 
         return intent
 
