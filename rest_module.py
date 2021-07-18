@@ -22,8 +22,6 @@ from torch import nn
 
 # @app.route("/", methods=["POST"])
 # def proccess_request():
-#     text = request.form["text"]
-#     result = brain.get_answer(text)
 #     return result
 
 
@@ -72,11 +70,11 @@ class Model_Handler:
         return device
 
     def get_model(self):
-        net = EnClassifier("tf_efficientnet_b0_ns", 10).to(self.device)
-        net.load_state_dict(torch.load("best.pth"))
-        net.eval()
+        model = EnClassifier("tf_efficientnet_b0_ns", 10).to(self.device)
+        model.load_state_dict(torch.load("best.pth"))
+        model.eval()
 
-        return net
+        return model
 
     def preproccess(self, image):
         transforms = Compose(
