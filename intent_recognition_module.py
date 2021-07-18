@@ -10,6 +10,7 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 class Ir_Module:
     def __init__(self):
+        # all this stuff will be replaced by something lighter for sure
         self.threshold = 0.5
         self.model = GPT2LMHeadModel.from_pretrained("sberbank-ai/rugpt3small_based_on_gpt2")
         self.tokenizer = GPT2Tokenizer.from_pretrained("sberbank-ai/rugpt3small_based_on_gpt2")
