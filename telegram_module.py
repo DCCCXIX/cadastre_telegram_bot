@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# coding: utf-8
+
 import logging
 import re
 import time
@@ -9,10 +11,10 @@ import data_handler_module
 import egrn_module
 import intent_recognition_module
 import requests
-import rest_module
 
 
 class BotHandler:
+    # handles basic bot functions
     def __init__(self, token, dialogue_manager):
         self.token = token
         self.api_url = f"https://api.telegram.org/bot{self.token}/"
@@ -46,15 +48,20 @@ class DialogueManager(object):
             return "Здравствуйте. Я кадастровый бот-ассистент"
         if text == "/help":
             return "Сам разберешься, хуепутало"
-
+        # returns user's intent
         intent = intent_recognition_module.ir.get_intent(str(text))
 
         if intent == "egrn_auth_key":
-            # todo: validate key on input
-            data_handler_module.dh.set_auth_key(chat_id, text)
-            answer = "Ключ принят"
+            # sets egrn auth key
+            auth_key = re.match(r"\w{8}-\w{4}-\w{4}-\w{4}-\w{12}", text)[0]
+            auth_key_set = data_handler_module.dh.set_auth_key(chat_id, auth_key)
+            if auth_key_set:
+                answer = "Ключ принят"
+            else:
+                answer = "Ключ не принят. Проверьте корректность ключа, либо попробуйте позже."
 
         elif intent == "egrn" or intent == "egrp":
+            # checks if user has an auth key
             auth_key_added = data_handler_module.dh.verify_key(chat_id)
             if not auth_key_added:
                 return (
@@ -62,13 +69,14 @@ class DialogueManager(object):
                 )
 
             else:
+                # grabs cadastral numbers from the text
                 cad_numbers = re.findall(r"\d{2}:\d{2}:\d{1,7}:\d{1,}", text)
                 cad_numbers = set(cad_numbers)
                 if len(cad_numbers) > 0:
                     cad_numbers_string = ", ".join(cad_numbers)
                 else:
                     return "Не могу заказать выписки без кадастровых номеров"
-
+            # calls add_egrn_request with different excerpt types depending on intent
             if intent == "egrn":
                 data_handler_module.dh.add_egrn_request(cad_numbers, chat_id, excerpt_type=0)
                 answer = "Заказ выписок ЕГРН на " + cad_numbers_string
@@ -93,7 +101,7 @@ def main():
     dialogue_manager = DialogueManager()
     ca_bot = BotHandler(token, dialogue_manager)
     new_offset = 0
-
+    # essentially launches egrn module in parallel
     proc = Process(target=egrn_module.egrn_proccess)
     proc.start()
 
@@ -106,14 +114,6 @@ def main():
                     text = update["message"]["text"]
 
                     answer = ca_bot.dialogue_manager.get_answer(chat_id, text)
-                    ca_bot.send_message(chat_id, answer)
-                elif "photo" in update["message"]:
-                    file_id = update["message"]["photo"][1]["file_id"]
-                    file_id = requests.get(f"https://api.telegram.org/bot{token}/getFile?file_id={file_id}").json()
-                    image_path = file_id["result"]["file_path"]
-                    image = requests.get(f"https://api.telegram.org/file/bot{token}/{image_path}", stream=True).raw
-                    answer = rest_module.mh.predict(image)
-
                     ca_bot.send_message(chat_id, answer)
 
             new_offset = max(new_offset, update["update_id"] + 1)
