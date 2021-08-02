@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://portal.rosreestr.ru/xsl/EGRP/Reestr_Extract_Big/ZU/07/Common.xsl"?>
+
+<KVZU xmlns="urn://x-artefacts-rosreestr-ru/outgoing/kvzu/7.0.1"
+xmlns:smev="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1"
+xmlns:num="urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0"
+xmlns:adrs="urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/4.0.1"
+xmlns:spa="urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/5.0.1"
+xmlns:cer="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0"
+xmlns:doc="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1"
+xmlns:nobj="urn://x-artefacts-rosreestr-ru/commons/complex-types/natural-objects-output/1.0.1">
+<Parcels>
+<Parcel CadastralNumber="50:08:0090337:288" State="06"
+DateCreated="2010-06-04"
+>
+<CadastralBlock>50:08:0090337</CadastralBlock>
+<Name>01</Name>
+<OldNumbers>
+<num:OldNumber Type="03" Number="50:08:090337:288" />
+</OldNumbers>
+<PrevCadastralNumbers>
+<CadastralNumber>50:08:0090337:190</CadastralNumber>
+</PrevCadastralNumbers>
+<Area>
+<Area>1432</Area>
+<Unit>055</Unit>
+</Area>
+<Location>
+<inBounds>2</inBounds>
+<Address> <adrs:OKATO>46433000709</adrs:OKATO>
+<adrs:KLADR>50000057220000200</adrs:KLADR>
+<adrs:Region>50</adrs:Region>
+<adrs:District Name="Истринский" Type="р-н" />
+<adrs:Street Name="Лесная рапсодия" Type="н/п" />
+<adrs:Level1 Type="уч" Value="204" />
+<adrs:Note>Московская область, Истринский район, с/п Ядроминское, н/п &quot;Лесная рапсодия&quot;, уч. 204</adrs:Note>
+</Address>
+</Location>
+<Category>003001000000</Category>
+<Utilization Utilization="141006000000" ByDoc="для ведения дачного строительства" />
+<EntitySpatial EntSys="ID0" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="1" >
+<spa:Ordinate X="489133.43" Y="1320051.86" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="2" >
+<spa:Ordinate X="489162.7" Y="1320036.9" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="3" >
+<spa:Ordinate X="489182.56" Y="1320075.73" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="489153.25" Y="1320090.62" OrdNmb="1" />
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="1" >
+<spa:Ordinate X="489133.43" Y="1320051.86" OrdNmb="1" />
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+<CadastralCost Value="1654318" Unit="383" />
+<SpecialNote> Сведения о видах разрешенного использовании имеют статус «Актуальные незасвидетельствованные». Право (ограничение права, обременение объекта недвижимости) зарегистрировано на данный объект недвижимости с видами разрешенного использования «Для сельскохозяйственного производства».</SpecialNote>
+</Parcel>
+</Parcels>
+<CertificationDoc>
+<cer:Organization>ФГИС ЕГРН</cer:Organization>
+<cer:Date>2021-07-12</cer:Date>
+<cer:Number>99/2021/404386522</cer:Number>
+</CertificationDoc>
+<CoordSystems>
+<spa:CoordSystem Name="МСК-05" CsId="ID0" />
+</CoordSystems>
+<eDocument CodeType="112" Version="07" Scope="GKN">
+<Sender Kod="00.0.4.195"
+Name="ФГИС ЕГРН"
+Region="99"
+Date_Upload="2021-07-12"
+Appointment="Государственный регистратор"
+/>
+<Recipient Kod="00.0.4.111" Name="Демидион Игорь Павлович" />
+</eDocument>
+<ReestrExtract>
+<DeclarAttribute ID_KUVI="0"
+ExtractTypeCode="012000"
+ExtractTypeText="Выписка из Единого государственного реестра недвижимости об объекте недвижимости"
+ExtractNumber="99/2021/404386522"
+ExtractDate="12.07.2021"
+RequeryNumber="80-197012081"
+RequeryDate="12.07.2021"
+ExtractCount="1"
+NoticeCount="0"
+RefuseCount="0"
+Registrator="ФГИС ЕГРН">
+<ReceivName>Демидион Игорь Павлович</ReceivName>
+<ReceivAdress>не указан</ReceivAdress>
+</DeclarAttribute>
+<ExtractObjectRight>
+<HeadContent>
+<ID_REC_KUVI>0</ID_REC_KUVI>
+<Title>ФЕДЕРАЛЬНАЯ СЛУЖБА ГОСУДАРСТВЕННОЙ РЕГИСТРАЦИИ, КАДАСТРА И КАРТОГРАФИИ</Title>
+<DeptName>ФГИС ЕГРН</DeptName>
+<ExtractTitle>Выписка из Единого государственного реестра недвижимости об объекте недвижимости</ExtractTitle>
+<Content>На основании запроса от 12.07.2021 г., поступившего на рассмотрение 12.07.2021 г., сообщаем, что согласно записям Единого государственного реестра недвижимости:</Content>
+</HeadContent>
+<ExtractObject>
+<ObjectRight>
+<Right RightNumber="1">
+<Owner >
+<ID_Subject>1804029450</ID_Subject>
+<Person>
+<Code_SP>007003000000</Code_SP>
+<Content>Беков Магомед Сергеевич</Content>
+<FIO>
+<Surname>Беков</Surname>
+<First>Магомед</First>
+<Patronymic>Сергеевич</Patronymic>
+</FIO>
+</Person>
+</Owner>
+<Registration >
+<ID_Record>37204147350</ID_Record>
+<RegNumber>50-50-08/130/2010-286</RegNumber>
+<Type>001001000000</Type>
+<Name>Собственность, № 50-50-08/130/2010-286 от 07.12.2010</Name>
+<RegDate>07.12.2010</RegDate>
+</Registration>
+<NoEncumbrance>не зарегистрировано</NoEncumbrance>
+</Right>
+<NoShareHolding>не зарегистрировано</NoShareHolding>
+</ObjectRight>
+<RightAssert>данные отсутствуют</RightAssert>
+<RightClaim>данные отсутствуют</RightClaim>
+<RightAgainst>данные отсутствуют</RightAgainst>
+<RightSteal>данные отсутствуют</RightSteal>
+<WithoutThirdParty>данные отсутствуют</WithoutThirdParty>
+<InabilityRegWithoutOwner></InabilityRegWithoutOwner>
+<InabilityRegZU></InabilityRegZU>
+</ExtractObject>
+<InfoENK/>
+<InfoPIK/>
+<FootContent>
+<Recipient>Демидион Игорь Павлович</Recipient>
+<ExtractDate>12.07.2021</ExtractDate>
+<Content></Content>
+</FootContent>
+</ExtractObjectRight>
+</ReestrExtract>
+</KVZU>

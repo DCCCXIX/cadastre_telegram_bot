@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://portal.rosreestr.ru/xsl/EGRP/Reestr_Extract_Big/ROOM/07/Common.xsl"?>
+
+<KPOKS xmlns="urn://x-artefacts-rosreestr-ru/outgoing/kpoks/4.0.1"
+xmlns:smev="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1"
+xmlns:num="urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0"
+xmlns:adrs="urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/4.0.1"
+xmlns:spa="urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/5.0.1"
+xmlns:param="urn://x-artefacts-rosreestr-ru/commons/complex-types/parameters-oks/2.0.1"
+xmlns:cer="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0"
+xmlns:doc="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1"
+xmlns:flat="urn://x-artefacts-rosreestr-ru/commons/complex-types/assignation-flat/1.0.1"
+xmlns:ch="urn://x-artefacts-rosreestr-ru/commons/complex-types/cultural-heritage/2.0.1">
+<Realty>
+<Flat CadastralNumber="50:07:0000000:19047" State="01"
+DateCreated="2012-07-26"
+>
+<CadastralBlock>50:07:0000000</CadastralBlock>
+<ObjectType>002001003000</ObjectType>
+<ParentCadastralNumbers>
+<CadastralNumberOKS>50:07:0000000:6237</CadastralNumberOKS>
+</ParentCadastralNumbers>
+<OldNumbers>
+<num:OldNumber Type="01" Number="003:004-1512/8-1" />
+</OldNumbers>
+<Assignation>
+<flat:AssignationCode>206002000000</flat:AssignationCode>
+<flat:AssignationType>205002000000</flat:AssignationType>
+</Assignation>
+<Area>16.6</Area>
+<Address>
+<adrs:OKATO>46205501000</adrs:OKATO>
+<adrs:KLADR>50003001000006700</adrs:KLADR>
+<adrs:Region>50</adrs:Region>
+<adrs:District Name="Волоколамский" Type="р-н" />
+<adrs:City Name="Волоколамск" Type="г" />
+<adrs:Street Name="Текстильщиков" Type="ул" />
+<adrs:Level1 Type="д" Value="13" />
+<adrs:Apartment Type="кв" Value="8" />
+<adrs:Note>Московская область, р-н Волоколамский, г Волоколамск, ул Текстильщиков, д 13, кв 8</adrs:Note>
+</Address>
+<PositionInObject>
+<Levels>
+<Level Number="02" Type="01">
+<Position NumberOnPlan="8">
+</Position>
+</Level>
+</Levels>
+</PositionInObject>
+<CadastralCost Value="622302.96" Unit="383" />
+<Notes> Сведения о назначении имеют статус «Актуальные незасвидетельствованные». Право (ограничение права, обременение объекта недвижимости) зарегистрировано на данный объект недвижимости с назначениием отсутствует.</Notes>
+</Flat>
+</Realty>
+<CertificationDoc>
+<cer:Organization>ФГИС ЕГРН</cer:Organization>
+<cer:Date>2021-07-29</cer:Date>
+<cer:Number>99/2021/408016642</cer:Number>
+</CertificationDoc>
+<CoordSystems>
+<spa:CoordSystem Name="МСК-05" CsId="ID0" />
+</CoordSystems>
+<eDocument CodeType="112" Version="07" Scope="GKN">
+<Sender Kod="00.0.4.195"
+Name="ФГИС ЕГРН"
+Region="99"
+Date_Upload="2021-07-29"
+Appointment="Государственный регистратор"
+/>
+<Recipient Kod="00.0.4.111" Name="Демидион Игорь Павлович" />
+</eDocument>
+<ReestrExtract>
+<DeclarAttribute ID_KUVI="0"
+ExtractTypeCode="012000"
+ExtractTypeText="Выписка из Единого государственного реестра недвижимости об объекте недвижимости"
+ExtractNumber="99/2021/408016642"
+ExtractDate="29.07.2021"
+RequeryNumber="80-199337077"
+RequeryDate="29.07.2021"
+ExtractCount="1"
+NoticeCount="0"
+RefuseCount="0"
+Registrator="ФГИС ЕГРН">
+<ReceivName>Демидион Игорь Павлович</ReceivName>
+<ReceivAdress>не указан</ReceivAdress>
+</DeclarAttribute>
+<ExtractObjectRight>
+<HeadContent>
+<ID_REC_KUVI>0</ID_REC_KUVI>
+<Title>ФЕДЕРАЛЬНАЯ СЛУЖБА ГОСУДАРСТВЕННОЙ РЕГИСТРАЦИИ, КАДАСТРА И КАРТОГРАФИИ</Title>
+<DeptName>ФГИС ЕГРН</DeptName>
+<ExtractTitle>Выписка из Единого государственного реестра недвижимости об объекте недвижимости</ExtractTitle>
+<Content>На основании запроса от 29.07.2021 г., поступившего на рассмотрение 29.07.2021 г., сообщаем, что согласно записям Единого государственного реестра недвижимости:</Content>
+</HeadContent>
+<ExtractObject>
+<ObjectRight>
+<Right RightNumber="1">
+<Owner >
+<ID_Subject>8791411050</ID_Subject>
+<Person>
+<Code_SP>007003000000</Code_SP>
+<Content>Золотарев Владимир Иванович</Content>
+<FIO>
+<Surname>Золотарев</Surname>
+<First>Владимир</First>
+<Patronymic>Иванович</Patronymic>
+</FIO>
+</Person>
+</Owner>
+<Registration >
+<ID_Record>46073277050</ID_Record>
+<RegNumber>50-50-07/019/2008-425</RegNumber>
+<Type>001001000000</Type>
+<Name>Собственность, № 50-50-07/019/2008-425 от 18.06.2008</Name>
+<RegDate>18.06.2008</RegDate>
+</Registration>
+<NoEncumbrance>не зарегистрировано</NoEncumbrance>
+</Right>
+<NoShareHolding>не зарегистрировано</NoShareHolding>
+</ObjectRight>
+<RightAssert>данные отсутствуют</RightAssert>
+<RightClaim>данные отсутствуют</RightClaim>
+<RightAgainst>данные отсутствуют</RightAgainst>
+<RightSteal>данные отсутствуют</RightSteal>
+<WithoutThirdParty>данные отсутствуют</WithoutThirdParty>
+<InabilityRegWithoutOwner></InabilityRegWithoutOwner>
+<InabilityRegZU></InabilityRegZU>
+</ExtractObject>
+<InfoENK/>
+<InfoPIK/>
+<FootContent>
+<Recipient>Демидион Игорь Павлович</Recipient>
+<ExtractDate>29.07.2021</ExtractDate>
+<Content></Content>
+</FootContent>
+</ExtractObjectRight>
+</ReestrExtract>
+</KPOKS>

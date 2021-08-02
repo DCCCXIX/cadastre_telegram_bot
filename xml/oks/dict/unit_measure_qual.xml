@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<row_list Qualifyer="UNIT_MEASURE_QUAL">
+     <row id="0" status="0" Date_Beg="11.04.2005 15:29:19">
+          <CODE>012001000000</CODE>
+          <COD_OKEI />
+          <VALUE>Единицы длины</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="1" status="0" Date_Beg="11.04.2005 15:29:19">
+          <CODE>012001001000</CODE>
+          <COD_OKEI>003</COD_OKEI>
+          <VALUE>Миллиметр</VALUE>
+          <SHORT_VALUE>мм</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="2" status="0" Date_Beg="11.04.2005 15:29:19">
+          <CODE>012001002000</CODE>
+          <COD_OKEI>004</COD_OKEI>
+          <VALUE>Сантиметр</VALUE>
+          <SHORT_VALUE>см</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="3" status="0" Date_Beg="11.04.2005 15:29:19">
+          <CODE>012001003000</CODE>
+          <COD_OKEI>005</COD_OKEI>
+          <VALUE>Дециметр</VALUE>
+          <SHORT_VALUE>дм</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="4" status="0" Date_Beg="11.04.2005 15:29:19">
+          <CODE>012001004000</CODE>
+          <COD_OKEI>006</COD_OKEI>
+          <VALUE>Метр</VALUE>
+          <SHORT_VALUE>м</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="5" status="0" Date_Beg="11.04.2005 15:29:19">
+          <CODE>012001005000</CODE>
+          <COD_OKEI>008</COD_OKEI>
+          <VALUE>Километр</VALUE>
+          <SHORT_VALUE>км</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="6" status="0" Date_Beg="11.04.2005 15:29:20">
+          <CODE>012001006000</CODE>
+          <COD_OKEI>009</COD_OKEI>
+          <VALUE>Мегаметр</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="7" status="0" Date_Beg="11.04.2005 15:29:20">
+          <CODE>012001007000</CODE>
+          <COD_OKEI>047</COD_OKEI>
+          <VALUE>Морская миля</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="8" status="0" Date_Beg="11.04.2005 15:29:20">
+          <CODE>012002000000</CODE>
+          <COD_OKEI />
+          <VALUE>Единицы площади</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="9" status="0" Date_Beg="11.04.2005">
+          <CODE>012002001000</CODE>
+          <COD_OKEI>050</COD_OKEI>
+          <VALUE>Квадратный миллиметр</VALUE>
+          <SHORT_VALUE>кв. мм</SHORT_VALUE>
+          <COEF>0.000001</COEF>
+     </row>
+     <row id="10" status="0" Date_Beg="11.04.2005">
+          <CODE>012002002000</CODE>
+          <COD_OKEI>051</COD_OKEI>
+          <VALUE>Квадратный сантиметр</VALUE>
+          <SHORT_VALUE>кв. см</SHORT_VALUE>
+          <COEF>0.0001</COEF>
+     </row>
+     <row id="11" status="0" Date_Beg="11.04.2005">
+          <CODE>012002003000</CODE>
+          <COD_OKEI>053</COD_OKEI>
+          <VALUE>Квадратный дециметр</VALUE>
+          <SHORT_VALUE>кв. дм</SHORT_VALUE>
+          <COEF>0.01</COEF>
+     </row>
+     <row id="12" status="0" Date_Beg="11.04.2005">
+          <CODE>012002004000</CODE>
+          <COD_OKEI>055</COD_OKEI>
+          <VALUE>Квадратный метр</VALUE>
+          <SHORT_VALUE>кв. м</SHORT_VALUE>
+          <COEF>1</COEF>
+     </row>
+     <row id="13" status="0" Date_Beg="11.04.2005">
+          <CODE>012002005000</CODE>
+          <COD_OKEI>058</COD_OKEI>
+          <VALUE>Тысяча квадратных метров</VALUE>
+          <SHORT_VALUE>тыс. кв. м</SHORT_VALUE>
+          <COEF>1000</COEF>
+     </row>
+     <row id="14" status="0" Date_Beg="11.04.2005">
+          <CODE>012002006000</CODE>
+          <COD_OKEI>059</COD_OKEI>
+          <VALUE>Гектар</VALUE>
+          <SHORT_VALUE>Га</SHORT_VALUE>
+          <COEF>10000</COEF>
+     </row>
+     <row id="15" status="0" Date_Beg="11.04.2005">
+          <CODE>012002007000</CODE>
+          <COD_OKEI>061</COD_OKEI>
+          <VALUE>Квадратный километр</VALUE>
+          <SHORT_VALUE>кв. км</SHORT_VALUE>
+          <COEF>1000000</COEF>
+     </row>
+     <row id="16" status="0" Date_Beg="11.04.2005">
+          <CODE>012002008000</CODE>
+          <COD_OKEI>109</COD_OKEI>
+          <VALUE>Ар (100 м2)</VALUE>
+          <SHORT_VALUE />
+          <COEF>100</COEF>
+     </row>
+     <row id="17" status="0" Date_Beg="11.04.2005 15:29:21">
+          <CODE>012003000000</CODE>
+          <COD_OKEI />
+          <VALUE>Единицы времени</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="18" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003001000</CODE>
+          <COD_OKEI>359</COD_OKEI>
+          <VALUE>Сутки</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="19" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003002000</CODE>
+          <COD_OKEI>360</COD_OKEI>
+          <VALUE>Неделя</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="20" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003003000</CODE>
+          <COD_OKEI>361</COD_OKEI>
+          <VALUE>Декада</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="21" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003004000</CODE>
+          <COD_OKEI>362</COD_OKEI>
+          <VALUE>Месяц</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="22" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003005000</CODE>
+          <COD_OKEI>364</COD_OKEI>
+          <VALUE>Квартал</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="23" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003006000</CODE>
+          <COD_OKEI>365</COD_OKEI>
+          <VALUE>Полугодие</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="24" status="0" Date_Beg="11.04.2005 15:29:22">
+          <CODE>012003007000</CODE>
+          <COD_OKEI>366</COD_OKEI>
+          <VALUE>Год</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="25" status="0" Date_Beg="11.04.2005 15:29:23">
+          <CODE>012004000000</CODE>
+          <COD_OKEI />
+          <VALUE>Экономические единицы</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="26" status="0" Date_Beg="11.04.2005">
+          <CODE>012004001000</CODE>
+          <COD_OKEI>383</COD_OKEI>
+          <VALUE>Рубль</VALUE>
+          <SHORT_VALUE>руб.</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="27" status="0" Date_Beg="11.04.2005">
+          <CODE>012004002000</CODE>
+          <COD_OKEI>384</COD_OKEI>
+          <VALUE>Тысяча рублей</VALUE>
+          <SHORT_VALUE>тыс. руб.</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="28" status="0" Date_Beg="11.04.2005">
+          <CODE>012004003000</CODE>
+          <COD_OKEI>385</COD_OKEI>
+          <VALUE>Миллион рублей</VALUE>
+          <SHORT_VALUE>млн. руб.</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="29" status="0" Date_Beg="11.04.2005">
+          <CODE>012004004000</CODE>
+          <COD_OKEI>386</COD_OKEI>
+          <VALUE>Миллиард рублей</VALUE>
+          <SHORT_VALUE>млрд. руб.</SHORT_VALUE>
+          <COEF />
+     </row>
+     <row id="30" status="0" Date_Beg="11.04.2005 15:29:24">
+          <CODE>012004005000</CODE>
+          <COD_OKEI />
+          <VALUE>Иные</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="31" status="0" Date_Beg="17.02.2006 13:47:48">
+          <CODE />
+          <COD_OKEI>1001</COD_OKEI>
+          <VALUE>Значение отсутствует</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+     <row id="32" status="0" Date_Beg="17.02.2006 13:47:16">
+          <CODE />
+          <COD_OKEI>1000</COD_OKEI>
+          <VALUE>Неопределено</VALUE>
+          <SHORT_VALUE />
+          <COEF />
+     </row>
+</row_list>

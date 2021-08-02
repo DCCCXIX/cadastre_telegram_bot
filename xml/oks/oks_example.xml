@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://portal.rosreestr.ru/xsl/EGRP/Reestr_Extract_Big/OKS/07/Common.xsl"?>
+
+<KVOKS xmlns="urn://x-artefacts-rosreestr-ru/outgoing/kvoks/3.0.1"
+xmlns:smev="urn://x-artefacts-smev-gov-ru/supplementary/commons/1.0.1"
+xmlns:num="urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0"
+xmlns:adrs="urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/4.0.1"
+xmlns:spa="urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/5.0.1"
+xmlns:param="urn://x-artefacts-rosreestr-ru/commons/complex-types/parameters-oks/2.0.1"
+xmlns:cer="urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0"
+xmlns:doc="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/4.0.1"
+xmlns:ch="urn://x-artefacts-rosreestr-ru/commons/complex-types/cultural-heritage/2.0.1">
+<Realty>
+<Building CadastralNumber="50:08:0010205:207" State="01"
+DateCreated="2016-12-02"
+>
+<CadastralBlocks>
+<CadastralBlock>50:08:0010205</CadastralBlock>
+</CadastralBlocks>
+<ObjectType>002001002000</ObjectType>
+<ParentCadastralNumbers>
+<CadastralNumber>50:08:0010205:204</CadastralNumber>
+</ParentCadastralNumbers>
+<OldNumbers>
+<num:OldNumber Type="02" Number="50-50/008-50/008/002/2016-1012" />
+</OldNumbers>
+<Name>Нежилое здание</Name>
+<AssignationBuilding>204001000000</AssignationBuilding>
+<ExploitationChar YearBuilt="2016" />
+<Floors Floors="3" />
+<Area>1162.3</Area>
+<Address>
+<adrs:OKATO>46433000000</adrs:OKATO>
+<adrs:KLADR>50000057000003900</adrs:KLADR>
+<adrs:Region>50</adrs:Region>
+<adrs:District Name="Истринский" Type="р-н" />
+<adrs:City Name="Истра-2" Type="г" />
+<adrs:Street Name="Рябкина" Type="ул" />
+<adrs:Level1 Type="д" Value="5" />
+<adrs:Note>обл. Московская, р-н Истринский, г. Истра, ул. Рябкина, д. 5</adrs:Note>
+</Address>
+<CadastralCost Value="10807079.02" Unit="383" />
+<EntitySpatial EntSys="ID1" >
+<spa:SpatialElement >
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="1" >
+<spa:Ordinate X="487202.03" Y="1336509.49" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="2" >
+<spa:Ordinate X="487198.77" Y="1336535.75" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="3" >
+<spa:Ordinate X="487193.81" Y="1336535.17" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="4" >
+<spa:Ordinate X="487193.52" Y="1336537.31" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="5" >
+<spa:Ordinate X="487187.56" Y="1336536.58" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="6" >
+<spa:Ordinate X="487187.82" Y="1336534.44" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="7" >
+<spa:Ordinate X="487182.87" Y="1336533.85" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="8" >
+<spa:Ordinate X="487186.15" Y="1336507.63" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+<spa:SpelementUnit TypeUnit="Точка" SuNmb="1" >
+<spa:Ordinate X="487202.03" Y="1336509.49" OrdNmb="1"
+DeltaGeopoint="0.1"
+/>
+</spa:SpelementUnit>
+</spa:SpatialElement>
+</EntitySpatial>
+<Notes> Сведения о назначении, количестве этажей, в том числе подземных этажей имеют статус «Актуальные незасвидетельствованные». Право (ограничение права, обременение объекта недвижимости) зарегистрировано на данный объект недвижимости с назначениием отсутствует, количеством этажей, в том числе подземных этажей отсутствует.</Notes>
+</Building>
+</Realty>
+<CertificationDoc>
+<cer:Organization>ФГИС ЕГРН</cer:Organization>
+<cer:Date>2021-07-28</cer:Date>
+<cer:Number>99/2021/407716869</cer:Number>
+</CertificationDoc>
+<Contractors>
+<Contractor >
+<FamilyName>Бурдыкина</FamilyName>
+<FirstName>Виктория</FirstName>
+<Patronymic>Александровна</Patronymic>
+<NCertificate>77-14-188</NCertificate>
+<Organization>
+<Name>ООО &quot;Дельта-Истра&quot;</Name>
+</Organization>
+</Contractor>
+</Contractors>
+<CoordSystems>
+<spa:CoordSystem Name="МСК-50, зона 1" CsId="ID1" />
+<spa:CoordSystem Name="МСК-05" CsId="ID0" />
+</CoordSystems>
+<eDocument CodeType="112" Version="07" Scope="GKN">
+<Sender Kod="00.0.4.195"
+Name="ФГИС ЕГРН"
+Region="99"
+Date_Upload="2021-07-28"
+Appointment="Государственный регистратор"
+/>
+<Recipient Kod="00.0.4.111" Name="Демидион Игорь Павлович" />
+</eDocument>
+<ReestrExtract>
+<DeclarAttribute ID_KUVI="0"
+ExtractTypeCode="012000"
+ExtractTypeText="Выписка из Единого государственного реестра недвижимости об объекте недвижимости"
+ExtractNumber="99/2021/407716869"
+ExtractDate="28.07.2021"
+RequeryNumber="80-199133350"
+RequeryDate="28.07.2021"
+ExtractCount="1"
+NoticeCount="0"
+RefuseCount="0"
+Registrator="ФГИС ЕГРН">
+<ReceivName>Демидион Игорь Павлович</ReceivName>
+<ReceivAdress>не указан</ReceivAdress>
+</DeclarAttribute>
+<ExtractObjectRight>
+<HeadContent>
+<ID_REC_KUVI>0</ID_REC_KUVI>
+<Title>ФЕДЕРАЛЬНАЯ СЛУЖБА ГОСУДАРСТВЕННОЙ РЕГИСТРАЦИИ, КАДАСТРА И КАРТОГРАФИИ</Title>
+<DeptName>ФГИС ЕГРН</DeptName>
+<ExtractTitle>Выписка из Единого государственного реестра недвижимости об объекте недвижимости</ExtractTitle>
+<Content>На основании запроса от 28.07.2021 г., поступившего на рассмотрение 28.07.2021 г., сообщаем, что согласно записям Единого государственного реестра недвижимости:</Content>
+</HeadContent>
+<ExtractObject>
+<ObjectRight>
+<Right RightNumber="1">
+<Owner >
+<ID_Subject>37943391150</ID_Subject>
+<Person>
+<Code_SP>007003000000</Code_SP>
+<Content>Люст Андрей Николаевич</Content>
+<FIO>
+<Surname>Люст</Surname>
+<First>Андрей</First>
+<Patronymic>Николаевич</Patronymic>
+</FIO>
+</Person>
+</Owner>
+<Registration >
+<ID_Record>37943390150</ID_Record>
+<RegNumber>50-50/008-50/008/002/2016-1012/2</RegNumber>
+<Type>001002000000</Type>
+<Name>Долевая собственность, № 50-50/008-50/008/002/2016-1012/2 от 04.05.2016, 1/2</Name>
+<RegDate>04.05.2016</RegDate>
+<ShareText>1/2</ShareText>
+</Registration>
+<NoEncumbrance>не зарегистрировано</NoEncumbrance>
+</Right>
+<Right RightNumber="2">
+<Owner >
+<ID_Subject>10415296650</ID_Subject>
+<Person>
+<Code_SP>007003000000</Code_SP>
+<Content>Кобзев Игорь Петрович</Content>
+<FIO>
+<Surname>Кобзев</Surname>
+<First>Игорь</First>
+<Patronymic>Петрович</Patronymic>
+</FIO>
+</Person>
+</Owner>
+<Registration >
+<ID_Record>37943385950</ID_Record>
+<RegNumber>50-50/008-50/008/002/2016-1012/1</RegNumber>
+<Type>001002000000</Type>
+<Name>Долевая собственность, № 50-50/008-50/008/002/2016-1012/1 от 04.05.2016, 1/2</Name>
+<RegDate>04.05.2016</RegDate>
+<ShareText>1/2</ShareText>
+</Registration>
+<NoEncumbrance>не зарегистрировано</NoEncumbrance>
+</Right>
+<NoShareHolding>не зарегистрировано</NoShareHolding>
+</ObjectRight>
+<RightAssert>данные отсутствуют</RightAssert>
+<RightClaim>данные отсутствуют</RightClaim>
+<RightAgainst>данные отсутствуют</RightAgainst>
+<RightSteal>данные отсутствуют</RightSteal>
+<WithoutThirdParty>данные отсутствуют</WithoutThirdParty>
+<InabilityRegWithoutOwner></InabilityRegWithoutOwner>
+<InabilityRegZU></InabilityRegZU>
+</ExtractObject>
+<InfoENK/>
+<InfoPIK/>
+<FootContent>
+<Recipient>Демидион Игорь Павлович</Recipient>
+<ExtractDate>28.07.2021</ExtractDate>
+<Content></Content>
+</FootContent>
+</ExtractObjectRight>
+</ReestrExtract>
+</KVOKS>
