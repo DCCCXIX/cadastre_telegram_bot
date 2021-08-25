@@ -5,6 +5,7 @@ import os
 import re
 import sqlite3 as sql
 import time
+from multiprocessing import Process
 
 import dataframe_image as dfi
 import pandas as pd
@@ -12,6 +13,7 @@ from PIL import Image
 
 import doc_module
 import egrn_module
+import pdf_module
 
 
 class Data_Handler:
@@ -40,29 +42,34 @@ class Data_Handler:
                 is_sent INTEGER,
                 files_path TEXT,
                 commentary TEXT,
-                excerpt_type INTEGER
+                excerpt_type INTEGER,
+                extension TEXT
             )"""
             )
             con.commit()
+
+    def init_egrn_proccess(self):
+        proc = Process(target=egrn_module.egrn_proccess)
+        proc.start()
 
     def get_status(self, chat_id):
         # returns a table with latest egrn requests' statuses
         # todo: fancier table
         with sql.connect("request_data.db") as con:
-            self.cursor = con.cursor()
+            cursor = con.cursor()
 
-        query = """SELECT (
+        query = f"""SELECT
                 request_date,
                 request_id_egrn,
                 excerpt_type,
                 cadastral_number,
                 request_status,
                 is_sent,
-                commentary)
-                FROM requests WHERE chat_id = (?)"""
+                commentary
+                FROM requests WHERE chat_id = ({chat_id})"""
         values = chat_id
 
-        status_table = pd.read_sql(query, values, con)
+        status_table = pd.read_sql_query(query, con)
 
         temp_image_path = f"{chat_id}_status_table.png"
         dfi.export(status_table.tail(20), temp_image_path, table_conversion="matplotlib")
@@ -97,36 +104,33 @@ class Data_Handler:
         else:
             return False
 
-    def get_files(self, request_id_egrn, extension=".pdf"):
+    def get_files(self, files_path, extension=".pdf"):
         # returns files in several formats
         # todo: support returning files by cadastral number and egrn request id
         # WIP
-        with sql.connect("request_data.db") as con:
-            self.cursor = con.cursor()
-            query = """SELECT files_path FROM requests WHERE request_id_egrn IS ?"""
-            values = request_id_egrn
-            files_path = self.cursor.execute(query, values)[0]
 
         if extension == ".xml":
-            pass
+            document_out = pdf_module.pm.get_document(files_path, format=".xml")
         elif extension == ".pdf":
-            pass
+            document_out = pdf_module.pm.get_document(files_path, format=".pdf")
         elif extension == ".dxf":
-            pass
+            document_out = pdf_module.pm.get_document(files_path, format=".dxf")
+        else:
+            document_out = "Формат не поддерживается"
 
-        return files_path
+        return document_out
 
-    def add_egrn_request(self, cad_numbers, chat_id, excerpt_type):
+    def add_egrn_request(self, cad_numbers, chat_id, extension=".pdf", excerpt_type=0):
         # adds a new request for egrn module to proccess
         # todo: implement a proper database interaction instead of this shit
         with sql.connect("request_data.db") as con:
             self.cursor = con.cursor()
             query = """INSERT INTO requests (
-                chat_id, cadastral_number, excerpt_type
-                ) VALUES (?, ?, ?)
+                chat_id, cadastral_number, excerpt_type, extension
+                ) VALUES (?, ?, ?, ?)
                 """
             for cad_number in cad_numbers:
-                values = (chat_id, cad_number, excerpt_type)
+                values = (chat_id, cad_number, excerpt_type, extension)
                 self.cursor.execute(query, values)
                 con.commit()
 
