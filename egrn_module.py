@@ -18,6 +18,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 import data_handler_module
 import rest_module
+import telegram_module
 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -66,12 +67,6 @@ class Egrn_Handler:
             try:
                 self.egrn_driver.get("https://rosreestr.gov.ru/wps/portal/p/cc_present/ir_egrn")
                 self.egrn_driver.implicitly_wait(5)
-                # auth_field = self.egrn_driver.find_elements_by_xpath(".//input[@type='text']")[0]
-                # auth_field.send_keys(self.current_auth_key)
-
-                # auth_field.click()
-                # auth_field.send_keys(auth_key)
-                # auth_field.send_keys(auth_key)
 
                 auth_field = self.egrn_driver.find_element_by_css_selector("#v-Z7_01HA1A42KODT90AR30VLN22003")
                 auth_field = auth_field.find_elements_by_xpath(".//input[@type='text']")[0]
@@ -137,25 +132,25 @@ class Egrn_Handler:
             if request_id_egrn in excerpts_to_check:
                 if len(download_link) > 0:
                     download_link[0].click()
-                    files_path = f"./completed_requests/{request_id_egrn}/"
+                    files_path = f"./completed_requests/Response-{request_id_egrn}.zip"
 
-                with sql.connect("request_data.db") as con:
-                    cursor = con.cursor()
-                    query = """UPDATE requests
-                            SET request_date = ?,
-                                request_status = ?,
-                                files_path = ?
-                            WHERE request_id_egrn = ?"""
-                    values = (request_date, request_status, files_path, request_id_egrn)
-                    cursor.execute(query, values)
-                    try:
-                        shutil.move(
-                            f"{self.download_dir_path}/Response-{request_id_egrn}.zip",
-                            f"./completed_requests/{request_id_egrn}/Response-{request_id_egrn}.zip",
-                        )
-                    except Exception as e:
-                        logging.info(e)
-                        continue
+                    with sql.connect("request_data.db") as con:
+                        cursor = con.cursor()
+                        query = """UPDATE requests
+                                SET request_date = ?,
+                                    request_status = ?,
+                                    files_path = ?
+                                WHERE request_id_egrn = ?"""
+                        values = (request_date, request_status, files_path, request_id_egrn)
+                        cursor.execute(query, values)
+                        try:
+                            shutil.move(
+                                f"{self.download_dir_path}/Response-{request_id_egrn}.zip",
+                                f"./completed_requests/{request_id_egrn}/Response-{request_id_egrn}.zip",
+                            )
+                        except Exception as e:
+                            logging.info(e)
+                            continue
 
     # check for an amount of paid requests left
     def check_accounts(self, chat_id):
@@ -179,7 +174,7 @@ class Egrn_Handler:
         return paid_requests_left
 
     def request_excerpt(self, cad_number, chat_id, excerpt_type=0):
-        def get_captcha():
+        def solve_captcha():
             # finds captcha, recognizes it and inputs into the respective field
             captcha = self.egrn_driver.find_element_by_xpath("//img[@style='width: 180px; height: 50px;']")
             time.sleep(2)
@@ -205,6 +200,25 @@ class Egrn_Handler:
 
             captcha_input_field.click()
             captcha_input_field.send_keys(solved_captcha)
+
+        def finish_request():
+            # click send request button
+            self.egrn_driver.find_element_by_xpath(
+                ".//span[contains(@class,'v-button-caption') and contains(text(),'Отправить запрос')]"
+            ).click()
+
+            time.sleep(3)
+
+            request_id_egrn = self.egrn_driver.find_element_by_xpath(
+                ".//div[contains(@class,'v-label v-label-tipFont tipFont v-label-undef-w')][1]/b[1]"
+            ).text
+
+            self.last_request_time = time.time()
+
+            time.sleep(3)
+            self.egrn_driver.find_element_by_xpath(".//div[contains(@class,'v-window-closebox')]").click()
+
+            return request_id_egrn
 
         # requests a document via selenium and returs egrn request id
         auth_key = data_handler_module.dh.auth_key_dict[str(chat_id)]
@@ -279,37 +293,29 @@ class Egrn_Handler:
             self.egrn_driver.find_element_by_xpath("//input[@id='gwt-uid-3']").click()
 
         time.sleep(2)
+        solve_captcha()
+        time.sleep(2)
 
-        get_captcha()
-
-        # click send request button
-        self.egrn_driver.find_element_by_xpath(
-            ".//span[contains(@class,'v-button-caption') and contains(text(),'Отправить запрос')]"
-        ).click()
-
-        time.sleep(5)
         try:
-            request_id_egrn = self.egrn_driver.find_element_by_xpath(
-                ".//div[contains(@class,'v-label v-label-tipFont tipFont v-label-undef-w')][1]/b[1]"
-            ).text
-
-            self.last_request_time = time.time()
-
-            time.sleep(5)
-            self.egrn_driver.find_element_by_xpath(".//div[contains(@class,'v-window-closebox')]").click()
+            # finish request and get request_id_egrn
+            request_id_egrn = finish_request()
+            return request_id_egrn
         except:
             # if element is not found then either captcha wasn't recognzied properly
             # or egrn webside is being unstable
+            # so we try to solve the captcha again
             retry_captcha_button = self.egrn_driver.find_element_by_xpath(
                 ".//span[contains(@class,'v-button-caption') and contains(text(),'Другую картинку')]"
             )
             retry_captcha_button.click()
             time.sleep(1)
-            get_captcha()
+            solve_captcha()
+            request_id_egrn = finish_request()
+            return request_id_egrn
         finally:
+            # if it fails, most likely egrn is being unstable
+            # return to the initial page and try again
             self.init_driver(auth_key)
-
-        return request_id_egrn
 
 
 def egrn_proccess():
@@ -357,16 +363,39 @@ def egrn_proccess():
         for user in users_to_check:
             eh.download_excerpt(user[0])
             paid_requests_left = eh.check_accounts(user[0])
-            logging.info(f"Paid requests left for user {chat_id}: {paid_requests_left}")
+            logging.info(f"Paid requests left for user {user[0]}: {paid_requests_left}")
 
         with sql.connect("request_data.db") as con:
             cursor = con.cursor()
-            query = """SELECT chat_id, files_path FROM requests WHERE files_path IS NOT NULL AND is_sent IS NULL"""
+            query = """SELECT chat_id, files_path, cadastral_number, commentary, extension, request_id_egrn
+                FROM requests
+                WHERE files_path IS NOT NULL
+                AND is_sent IS NULL"""
             cursor.execute(query)
             files_to_send = cursor.fetchall()
+            print(f"Printing excerpts {files_to_send}")
+
             if len(files_to_send) > 0:
                 for file in files_to_send:
-                    data_handler_module.dh.get_files(file)
+                    chat_id = file[0]
+                    files_path = file[1]
+                    cadastral_number = file[2]
+                    commentary = file[3]
+                    extension = file[4]
+                    request_id_egrn = file[5]
+                    document_out = data_handler_module.dh.get_files(files_path, extension)
+                    telegram_module.bh.send_message(
+                        chat_id, document_out, filename=cadastral_number.replace(":", "_") + ".pdf"
+                    )
+                    with open("whatever_lol.pdf", "wb") as f:
+                        f.write(document_out)
+                    with sql.connect("request_data.db") as con:
+                        cursor = con.cursor()
+                        query = """UPDATE requests
+                            SET is_sent = ?
+                            WHERE request_id_egrn = ?"""
+                        values = (1, request_id_egrn)
+                        cursor.execute(query, values)
 
 
 def check_key(auth_key):
@@ -378,10 +407,3 @@ def check_key(auth_key):
     del auth_validation_eh
 
     return key_valid
-
-
-if __name__ == "__main__":
-    try:
-        egrn_proccess()
-    except KeyboardInterrupt:
-        exit()
