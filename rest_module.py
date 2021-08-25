@@ -10,25 +10,6 @@ from albumentations.pytorch import ToTensorV2
 from PIL import Image
 from torch import nn
 
-# from flask import Flask, redirect, render_template, request, url_for
-
-# app = Flask(__name__)
-
-
-# @app.route("/")
-# def main_form():
-#     return render_template("main_form.html")
-
-
-# @app.route("/", methods=["POST"])
-# def proccess_request():
-#     return result
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True, port=int(os.environ.get("PORT", 5000)))
-
-
 class EnClassifier(nn.Module):
     def __init__(self, model_arch, n_class, pretrained=True):
         super().__init__()
@@ -52,7 +33,6 @@ class EnClassifier(nn.Module):
         output = torch.reshape(output, (output.size()[0], 5, 10))
 
         return output
-
 
 class Model_Handler:
     def __init__(self):
@@ -109,6 +89,5 @@ class Model_Handler:
         outputs_argmax = [torch.argmax(i).item() for i in outputs[0]]
         outputs = "".join([str(i) for i in outputs_argmax])
         return outputs
-
 
 mh = Model_Handler()
